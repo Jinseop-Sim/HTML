@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Students Database</title>
+    <meta charset="UTF-8">
+    <style>
+        header{
+            margin-top:0;
+            background: blue;
+            height: 70px;
+            margin-bottom: 15px;
+        }
+        main{
+            height: 310px;
+        }
+    </style>
+</head>
+<body>
+<header>
+<div style = 'font-size:1.5em; color : white; text-align: center; padding: 1px 1px 1px 1px'>
+    <p>Students Database</p>
+    </div>
+</header>
+<main>
+    <style>
+        form{
+            text-align: center;
+            color: green;
+            margin-bottom: 15px;
+        }
+    </style>
+    <form action = 'addrecord/'>
+        <button type = 'submit'
+               style = 'color: white; background-color: green'>+ Add New Record</button>
+    </form>
+<table>
+    <style>
+        table, td, th{
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: auto;
+        }
+        table{
+            width: 100%;
+        }
+    </style>
+    <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Secondname</th>
+        <th>Age</th>
+        <th>Major</th>
+        <th>Address</th>
+        <th></th>
+    </tr>
+    {% for student in students %}
+        <tr>
+            <td>{{student.id}}</td>
+            <td>{{student.firstname}}</td>
+            <td>{{student.secondname}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.major}}</td>
+            <td>{{student.address}}</td>
+            <td align = center><form action = 'edit/{{student.id}}' style = "display: inline-block">
+                <button type = 'submit'
+               style = 'color: white; background-color: skyblue; margin-right:30px;'>Edit Record</button>
+            </form><form action = 'delete/{{student.id}}' name = "input" method = "POST" style = "display: inline-block">
+                {% csrf_token %}
+                <button type = 'submit'
+                       style = 'color: white; background-color: indianred;'
+                        onclick = 'alert("Deleted!")'>Delete Record</button>
+            </form>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+</main>
+</body>
+</html>
