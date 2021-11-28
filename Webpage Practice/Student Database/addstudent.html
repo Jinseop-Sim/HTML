@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Students Database</title>
+    <meta charset="UTF-8">
+    <style>
+        header{
+            margin-top:0;
+            background: blue;
+            height: 70px;
+            margin-bottom: 15px;
+        }
+        main{
+            height: 310px;
+        }
+    </style>
+</head>
+<body>
+<header>
+<div style = 'font-size:1.5em; color : white; text-align: center; padding: 1px 1px 1px 1px'>
+    <p>Students Database</p>
+    </div>
+</header>
+<main>
+    <div style = 'font-size:1.5em; color : black;'>
+    <p align="center">Add New Student</p>
+    </div>
+    <form method = "POST" style = "text-align: right; margin-bottom: 20px; margin-right: 680px">
+        <style>
+            input{
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+        </style>
+        {% csrf_token %}
+        ID <input type = "text" name="id" size = "20" maxlength="9"><br/>
+        First Name <input type = "text" name = "fn" size = "20"><br/>
+        Second Name <input type = "text" name = "sn" size = "20"><br/>
+        Age <input type = "text" name = "age" size = "20" maxlength="2"><br/>
+        Major <input type = "text" name = "major" size = "20"><br/>
+        Address <input type = "text" name = "addr" size = "20"><br/>
+        <button type = "submit" style = 'color: white; background-color: darkblue;
+        display: inline-block; margin-right: 70px; margin-top: 30px'>Submit</button>
+    </form>
+</main>
+</body>
+</html>
